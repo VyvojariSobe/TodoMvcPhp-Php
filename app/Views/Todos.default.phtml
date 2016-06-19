@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="cs">
+    <head>
+        <base href="<?= $data['basePath'] ?>/">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+
+        <title>TodoMVC</title>
+        <link rel="stylesheet" href="assets/css/index.css">
+    </head>
+    <body>
+        <section class="todoapp">
+            <?php foreach ($data['flashMessages'] as $type => $messages) { ?>
+                <div class="flash <?= $type ?>"><?= implode('<br>', $messages) ?></div>
+            <?php } ?>
+
+            <header class="header">
+                <a href=""><h1>todos</h1></a>
+                <form action="new" method="post">
+                    <input name="value" class="new-todo" placeholder="What needs to be done?" autofocus>
+                </form>
+            </header>
+
+            <section class="main">
+                <label for="toggle-all">Mark all as complete</label>
+
+                <ul class="todo-list">
+                    <?php foreach ($data['todos'] as $todo) { ?>
+                        <li<?= $todo->isDone ? ' class="completed"' : '' ?>>
+                            <div class="view">
+                                <a href="<?= $todo->id . '/change-status/' . ($todo->isDone ? 'uncheck' : 'check') ?>">
+                                    <svg class="toggle" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135">
+                                        <circle cx="50" cy="50" r="50" fill="none" stroke="#ededed" stroke-width="3"></circle>
+                                        <?php if ($todo->isDone) { ?>
+                                            <path fill="#5dc2af" d="M72 25L42 71 27 56l-4 4 20 20 34-52z"></path>
+                                        <?php } ?>
+                                    </svg>
+                                </a>
+                                <label><?= $todo->value ?></label>
+                                <a href="<?= $todo->id . '/remove' ?>" class="btn destroy"></a>
+                            </div>
+                            <form action="<?= $todo->id ?>/change-value" method="post">
+                                <input name="value" class="edit" value="<?= $todo->value ?>">
+                            </form>
+                        </li>
+                    <?php } ?>
+                </ul>
+            </section>
+
+            <footer class="footer">
+        <span class="todo-count">
+          <strong><?= $data['countActive'] ?></strong> item left
+        </span>
+                <ul class="filters">
+                    <?php foreach ($data['filters'] as $filterKey => list($filterTitle)) { ?>
+                        <li>
+                            <a href="<?= $filterKey ?>" <?= $filterKey == $data['activeFilter'] ? 'class="selected"' : '' ?>><?= $filterTitle ?></a>
+                        </li>
+                    <?php } ?>
+                </ul>
+                <?php if ($data['countCompleted']) { ?>
+                    <a href="clear-completed" class="btn clear-completed">Clear completed</a>
+                <?php } ?>
+            </footer>
+        </section>
+        <footer class="info">
+            <p>Double-click to edit a todo</p>
+            <p>Created by <a href="http://twitter.com/zemistr">Zemistr</a></p>
+        </footer>
+
+        <script src="assets/js/jquery-3.0.0.min.js"></script>
+        <script src="assets/js/index.js"></script>
+    </body>
+</html>

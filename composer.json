@@ -1,0 +1,35 @@
+{
+  "name": "vyvojarisobe/todomvc-php",
+  "description": "Example of TodoMVC in PHP",
+  "keywords": [
+    "todo",
+    "mvc",
+    "todomvc",
+    "php",
+    "example"
+  ],
+  "homepage": "https://github.com/VyvojariSobe/todomvc-php",
+  "minimum-stability": "stable",
+  "license": [
+    "BSD",
+    "GPL-2.0",
+    "GPL-3.0"
+  ],
+  "authors": [
+    {
+      "name": "Martin Zeman (Zemistr)",
+      "email": "me@zemistr.eu",
+      "homepage": "http://www.zemistr.eu",
+      "role": "Author"
+    }
+  ],
+  "require": {
+    "php": ">=7",
+    "symfony/http-foundation": "3.1.*"
+  },
+  "autoload": {
+    "classmap": [
+      "app"
+    ]
+  }
+}
