@@ -1,5 +1,5 @@
 {
-  "name": "vyvojarisobe/todomvc-php",
+  "name": "vyvojarisobe/todomvcphp-php",
   "description": "Example of TodoMVC in PHP",
   "keywords": [
     "todo",
@@ -8,7 +8,7 @@
     "php",
     "example"
   ],
-  "homepage": "https://github.com/VyvojariSobe/todomvc-php",
+  "homepage": "https://github.com/VyvojariSobe/TodoMvcPhp-Php",
   "minimum-stability": "stable",
   "license": [
     "BSD",
