@@ -1,6 +1,6 @@
 {
   "name": "vyvojarisobe/todomvcphp-php",
-  "description": "Example of TodoMVC in PHP",
+  "description": "To Do list MVC example written in PHP.",
   "keywords": [
     "todo",
     "mvc",
