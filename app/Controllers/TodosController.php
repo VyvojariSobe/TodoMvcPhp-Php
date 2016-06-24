@@ -15,21 +15,6 @@ class TodosController
     use ViewResponseTrait;
     use FlashMessagesTrait;
 
-    protected function createComponentNewForm()
-    {
-        $form = $this->newTaskForm->create();
-        $form->onSuccess[] = function () {
-            $this->flashMessage('Task created', 'success');
-            $this->redirect('default');
-        };
-        $form->onError[] = function () {
-            $this->flashMessage("Task can't be empty", 'error');
-            $this->redirect('default');
-        };
-
-        return $form;
-    }
-
     /**
      * @param string $url
      * @return Response
